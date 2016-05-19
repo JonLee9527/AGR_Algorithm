@@ -1,0 +1,173 @@
+#ifndef DJI_GET_WAYPOINT_TASK
+#define DJI_GET_WAYPOINT_TASK
+
+#include<iostream>
+
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include "math.h"
+
+#include "djiPoint.h"
+#include "CoordTransform.h"
+#include "djiConst.h"
+
+using namespace cv;
+
+class WaypointTask
+{
+private:
+	Mat mapImg;//测试显示用
+	char cStr[200];//printLog
+
+	//初始化数据
+private:
+	vector<DjiPoint> areaPts;
+	vector<vector<DjiPoint> > forbidSeqPts;
+	//经纬度坐标到平面坐标
+	double cosLatitude;
+
+	//坐标转换类
+	CoordTrasform tran;
+
+
+
+	DjiPoint homePoint;
+	double sideStep;
+	DjiVec  forwardVec;
+	DjiVec  sideVec;
+
+	vector<DjiPoint> chargeLine;//可更换电池区域
+	unsigned start;
+	unsigned end;
+
+	//换电池输入参数**//
+	double maxFlightDist;
+	double  maxWalk;
+	double detaWalk;
+	//将chargeLine线离散成点 partDist表示点之间的距离
+	double partDist;
+
+private:
+	//实际飞行时参数
+	unsigned chargeStart;
+	unsigned chargeEnd;
+	double flightDistPercent;
+	int minPowerPercent;
+
+
+
+private:
+	vector<DjiPoint> waypoints;//DjiPoint.s值  0不用喷洒，表示寻路中的点， 1喷洒中的航点  2估计换电池的点
+
+//中间数据
+private:
+	vector<vector<DjiPoint> > inSec_seq;
+
+	vector<vector<DjiPoint> > areaFrags;
+	
+	double mostDist;//一块电池飞行的最大距离
+
+private://全局最优
+	//块内
+	vector<vector<double> > fragCosts;
+	vector<vector<vector<DjiPoint> > > fragPaths;
+	//块间
+	vector<vector<vector<double> > > ajMat;
+	vector<vector<vector<vector<DjiPoint> > > > ajPath;
+	
+
+	vector<bool> visited;
+	double minPathCost;
+	vector<int>  minPathIndex;
+	vector<int>  minPortIndex;
+
+	vector<int>  _minPathIndex;
+	vector<int>  _minPortIndex;
+
+public:
+	WaypointTask();
+	
+	WaypointTask(Mat mapImg, vector<DjiPoint> _areaPts, DjiPoint _droneLoc, DjiPoint _forwardVec, double _sideStep,
+		vector<vector<DjiPoint> > _forbidSeqPts = vector<vector<DjiPoint> >());
+
+	
+public:
+	//接口
+	WaypointTask(vector<DjiPoint> _areaPts, DjiPoint _droneLoc, DjiPoint _forwardVec, double _sideStep,
+		vector<vector<DjiPoint> > _forbidSeqPts);
+
+	vector<DjiPoint> getTask();
+
+	//input para
+	//partDist  将chargeLine离散的最小长度
+	//maxwalk 人在地面上的最大行走路程
+	//maxFlightDist  飞机满电量最大飞行路程
+	//minPowerpersent  飞机降落在换电池地点后应剩余的安全电量
+	void setChargePara(vector<DjiPoint> chargeLine = vector<DjiPoint>(), double partDist = 10,
+		double maxWalk = 100, double maxFlightDist = 3000, int minPowerPercent=25);
+
+	vector<DjiPoint> askCharging(int waypointIndex, int power);
+
+public:
+	//外部调用的数据处理
+	static void HandlePts(vector<DjiPoint>& pts);
+private:
+	unsigned dataPreHandle();
+
+	void drawMarkedPoints();
+
+	void getMarkerIndex(vector<DjiPoint>& _pts, unsigned & usedIndex);
+	
+	void getMinMaxPt(DjiPoint &minPt, DjiPoint & maxPt);
+	
+	void getOrderInterSections();
+	
+	void calInterSection(vector<DjiPoint>& areaPts, const DjiPoint& pt, const DjiVec& forwardVec,
+		vector<DjiPoint>& interSec);
+
+	void insertSort(vector<DjiPoint>& interSec, DjiPoint forwardVec_t);
+
+	void areaDivideMethod(vector<vector<DjiPoint> > inSec_seq, unsigned usedIndex);
+	void clearFragsMarkers(vector<vector<DjiPoint> >& areaFrags);
+
+	double findPathFromTwoPts(DjiPoint ptStart, DjiPoint ptEnd, vector<DjiPoint>& pathWayPts);
+
+	void calInterSection2(const vector<DjiPoint>& Pts, const DjiPoint& pt0, const DjiPoint& pt1,
+		vector<vector<DjiPoint> >& pathPts, bool isArea);
+	void insertSort2(vector<vector<DjiPoint> >& pathPts, DjiPoint forwardVec);
+
+	
+	void getFragsCostPath(vector<vector<DjiPoint> >& areaFrags);
+	double calPathCost(const vector<DjiPoint>& pts);
+	void getAdjoinMat(vector<vector<DjiPoint> >& areaFrags);
+
+	void initBeforeCal();
+	int getOutport(int size, int inport);
+	void  findFirstBlock(DjiPoint homePt, int& startIndex, int& inPort, int& outPort);
+	DjiPoint  getPointFromFragsInport(int Index, int port);
+
+	//返回飞机换电池消耗
+	double findNearestChargePoint(DjiPoint pos, unsigned chargeStart, unsigned chargeEnd, unsigned& nearest);
+
+	double batteryCheck(vector<DjiPoint>& taskPoints, double& reserve, unsigned& chargeStart, unsigned& chargeEnd);
+	unsigned estimateNextChargingPoint(vector<DjiPoint>& taskPoints, double reserve, unsigned chargeStart, unsigned chargeEnd);
+	void getChargePice(unsigned lastIndex, double maxWalk, unsigned& chargeStart, unsigned& chargeEnd);
+
+	//分块最优
+	void calMinPath(DjiPoint homePt);
+	void calMinPath(int start, int outPort, int end, double costSum, int visitedNum
+		/*,vector<DjiPoint> path, double reserve, unsigned chargeStat, unsigned chargeEnd*/);
+
+	//贪心
+	void visitNearest(DjiPoint homePt);
+	void visitNearest(int start, int outPort, int visitedNum);
+
+	void getWayPoints();
+	void getWayPointFromAeraFrags(int index, int port, vector<DjiPoint>& wayPts);
+
+	void dataHandleBeforeBack();
+
+public:
+};
+#endif // !DJI_GET_WAYPOINT_TASK

@@ -1,0 +1,39 @@
+﻿Build started 2015/12/11 11:04:07.
+     1>Project "D:\Projects\waypointAlg\waypointAlg\waypointAlg.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(355,5): warning MSB8003: Could not find WindowsSDKDir variable from the registry.  TargetFrameworkVersion or PlatformToolset may be set to an invalid version number.
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Projects\waypointAlg\x64\Debug\waypointAlg.exe" /INCREMENTAL /NOLOGO opencv_ts300d.lib opencv_world300d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Projects\waypointAlg\x64\Debug\waypointAlg.pdb" /SUBSYSTEM:CONSOLE,"5.02" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Projects\waypointAlg\x64\Debug\waypointAlg.lib" /MACHINE:X64 x64\Debug\pointSet.obj
+         x64\Debug\stdafx.obj
+         x64\Debug\waypointAlg.obj
+     1>MSVCRTD.lib(atonexit.obj) : error LNK2019: unresolved external symbol __imp_EncodePointer referenced in function __atonexitinit
+     1>MSVCRTD.lib(wcrtexe.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+     1>MSVCRTD.lib(atonexit.obj) : error LNK2019: unresolved external symbol __imp_DecodePointer referenced in function _onexit
+     1>MSVCRTD.lib(error.obj) : error LNK2019: unresolved external symbol __imp_IsDebuggerPresent referenced in function "void __cdecl failwithmessage(void *,int,int,char const *)" (?failwithmessage@@YAXPEAXHHPEBD@Z)
+     1>MSVCRTD.lib(gs_report.obj) : error LNK2001: unresolved external symbol __imp_IsDebuggerPresent
+     1>MSVCRTD.lib(error.obj) : error LNK2019: unresolved external symbol __imp_RaiseException referenced in function "int __cdecl DebuggerProbe(unsigned long)" (?DebuggerProbe@@YAHK@Z)
+     1>MSVCRTD.lib(error.obj) : error LNK2019: unresolved external symbol __imp_GetLastError referenced in function "void __cdecl _RTC_AllocaFailure(void *,struct _RTC_ALLOCA_NODE *,int)" (?_RTC_AllocaFailure@@YAXPEAXPEAU_RTC_ALLOCA_NODE@@H@Z)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+     1>MSVCRTD.lib(error.obj) : error LNK2019: unresolved external symbol __imp_GetProcAddress referenced in function "void __cdecl _RTC_AllocaFailure(void *,struct _RTC_ALLOCA_NODE *,int)" (?_RTC_AllocaFailure@@YAXPEAXPEAU_RTC_ALLOCA_NODE@@H@Z)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2001: unresolved external symbol __imp_GetProcAddress
+     1>MSVCRTD.lib(error.obj) : error LNK2019: unresolved external symbol __imp_LoadLibraryExW referenced in function "void __cdecl _RTC_AllocaFailure(void *,struct _RTC_ALLOCA_NODE *,int)" (?_RTC_AllocaFailure@@YAXPEAXPEAU_RTC_ALLOCA_NODE@@H@Z)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2001: unresolved external symbol __imp_LoadLibraryExW
+     1>MSVCRTD.lib(error.obj) : error LNK2019: unresolved external symbol __imp_MultiByteToWideChar referenced in function "void __cdecl failwithmessage(void *,int,int,char const *)" (?failwithmessage@@YAXPEAXHHPEBD@Z)
+     1>MSVCRTD.lib(error.obj) : error LNK2019: unresolved external symbol __imp_WideCharToMultiByte referenced in function "void __cdecl failwithmessage(void *,int,int,char const *)" (?failwithmessage@@YAXPEAXHHPEBD@Z)
+     1>MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol IsProcessorFeaturePresent referenced in function __report_gsfailure
+     1>MSVCRTD.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_QueryPerformanceCounter referenced in function __security_init_cookie
+     1>MSVCRTD.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_GetCurrentProcessId referenced in function __security_init_cookie
+     1>MSVCRTD.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_GetCurrentThreadId referenced in function __security_init_cookie
+     1>MSVCRTD.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_GetSystemTimeAsFileTime referenced in function __security_init_cookie
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2019: unresolved external symbol __imp_HeapAlloc referenced in function "int __cdecl _RTC_GetSrcLine(unsigned char *,wchar_t *,unsigned long,int *,wchar_t *,unsigned long)" (?_RTC_GetSrcLine@@YAHPEAEPEA_WKPEAH1K@Z)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2019: unresolved external symbol __imp_HeapFree referenced in function "int __cdecl _RTC_GetSrcLine(unsigned char *,wchar_t *,unsigned long,int *,wchar_t *,unsigned long)" (?_RTC_GetSrcLine@@YAHPEAEPEA_WKPEAH1K@Z)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2019: unresolved external symbol __imp_GetProcessHeap referenced in function "int __cdecl _RTC_GetSrcLine(unsigned char *,wchar_t *,unsigned long,int *,wchar_t *,unsigned long)" (?_RTC_GetSrcLine@@YAHPEAEPEA_WKPEAH1K@Z)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2019: unresolved external symbol __imp_VirtualQuery referenced in function "int __cdecl _RTC_GetSrcLine(unsigned char *,wchar_t *,unsigned long,int *,wchar_t *,unsigned long)" (?_RTC_GetSrcLine@@YAHPEAEPEA_WKPEAH1K@Z)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2019: unresolved external symbol __imp_FreeLibrary referenced in function "struct HINSTANCE__ * __cdecl GetPdbDllFromInstallPath(void)" (?GetPdbDllFromInstallPath@@YAPEAUHINSTANCE__@@XZ)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2019: unresolved external symbol __imp_GetModuleFileNameW referenced in function "struct HINSTANCE__ * __cdecl GetPdbDll(void)" (?GetPdbDll@@YAPEAUHINSTANCE__@@XZ)
+     1>MSVCRTD.lib(pdblkup.obj) : error LNK2019: unresolved external symbol __imp_GetModuleHandleW referenced in function "struct HINSTANCE__ * __cdecl GetPdbDll(void)" (?GetPdbDll@@YAPEAUHINSTANCE__@@XZ)
+     1>D:\Projects\waypointAlg\x64\Debug\waypointAlg.exe : fatal error LNK1120: 21 unresolved externals
+     1>Done Building Project "D:\Projects\waypointAlg\waypointAlg\waypointAlg.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.56

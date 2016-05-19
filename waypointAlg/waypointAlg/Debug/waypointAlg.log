@@ -1,0 +1,57 @@
+﻿Build started 2016/5/16 16:25:27.
+     1>Project "E:\git\ag\waypointAlg\waypointAlg\waypointAlg.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _USING_V110_SDK71_ /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\waypointAlg.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BlockManager.cpp PPETask.cpp SprayTask.cpp edgeGenaration.cpp waypointAlg.cpp
+         BlockManager.cpp
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(23): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(80): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(107): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(114): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(134): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(161): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(163): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(185): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(207): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(242): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+     1>e:\git\ag\waypointalg\waypointalg\blockmanager.cpp(64): warning C4715: 'SprayLineseqBlock::getPortPoint' : not all control paths return a value
+         Compiling...
+         waypointAlg.cpp
+     1>c:\opencv\build\include\opencv2\core\mat.hpp(1965): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>c:\opencv\build\include\opencv2\core\persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>c:\opencv\build\include\opencv2\core\utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>e:\git\ag\waypointalg\waypointalg\waypointalg.cpp(63): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\waypointalg.cpp(175): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\waypointalg.cpp(181): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\waypointalg.cpp(217): warning C4018: '<' : signed/unsigned mismatch
+         PPETask.cpp
+     1>e:\git\ag\waypointalg\waypointalg\ppetask.cpp(128): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\ppetask.cpp(653): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\ppetask.cpp(655): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\ppetask.cpp(689): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\ppetask.cpp(691): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\ppetask.cpp(703): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\git\ag\waypointalg\waypointalg\ppetask.cpp(707): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         edgeGenaration.cpp
+         SprayTask.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\git\ag\waypointAlg\Debug\waypointAlg.exe" /INCREMENTAL /NOLOGO opencv_ts300d.lib opencv_world300d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\git\ag\waypointAlg\Debug\waypointAlg.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\git\ag\waypointAlg\Debug\waypointAlg.lib" /MACHINE:X86 Debug\CoordTransform.obj
+         Debug\debugIO.obj
+         Debug\DjiEdge.obj
+         Debug\DjiMatD.obj
+         Debug\djiPoint.obj
+         Debug\djiUtils.obj
+         Debug\edgeGenaration.obj
+         Debug\BlockManager.obj
+         Debug\SprayTask.obj
+         Debug\stdafx.obj
+         Debug\waypointAlg.obj
+         Debug\PPETask.obj
+         waypointAlg.vcxproj -> E:\git\ag\waypointAlg\Debug\waypointAlg.exe
+     1>Done Building Project "E:\git\ag\waypointAlg\waypointAlg\waypointAlg.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.65
